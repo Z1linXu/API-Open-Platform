@@ -42,6 +42,7 @@ export async function getInitialState(): Promise<InitialState> {
 // ProLayout 支持的api https://procomponents.ant.design/components/layout
 export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) => {
   return {
+    layout: "top",
     actionsRender: () => [<Question key="doc" />, <SelectLang key="SelectLang" />],
     avatarProps: {
       src: initialState?.loginUser?.userAvatar,
@@ -56,6 +57,10 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
     footerRender: () => <Footer />,
     onPageChange: () => {
       const { location } = history;
+      const whiteList = ['/user/register', loginPath];
+      if(whiteList.includes(location.pathname)){
+        return;
+      }
       // 如果没有登录，重定向到 login
       if (!initialState?.loginUser && location.pathname !== loginPath) {
         history.push(loginPath);
@@ -102,7 +107,7 @@ export const layout: RunTimeLayoutConfig = ({ initialState, setInitialState }) =
             <SettingDrawer
               disableUrlParams
               enableDarkTheme
-              settings={initialState?.settings}
+              settings={defaultSettings}
               onSettingChange={(settings) => {
                 setInitialState((preInitialState) => ({
                   ...preInitialState,

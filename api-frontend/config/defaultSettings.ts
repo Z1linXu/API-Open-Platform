@@ -10,12 +10,13 @@ const Settings: ProLayoutProps & {
   navTheme: 'light',
   // 拂晓蓝
   colorPrimary: '#1890ff',
-  layout: 'mix',
-  contentWidth: 'Fluid',
+  layout: "top",
+  contentWidth: 'Fixed',
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'Ant Design Pro',
+  splitMenus: false,
+  title: 'Api Platform',
   pwa: true,
   logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
   iconfontUrl: '',
@@ -25,4 +26,12 @@ const Settings: ProLayoutProps & {
   },
 };
 
+// {
+//   "layout": "top",
+//   "contentWidth": "Fixed",
+//   "fixedHeader": false,
+//   "fixSiderbar": true,
+//   "colorPrimary": "#1677FF",
+//   "splitMenus": false
+// }
 export default Settings;
