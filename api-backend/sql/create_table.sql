@@ -3,10 +3,10 @@
 # @from <a href="https://yupi.icu">编程导航知识星球</a>
 
 -- 创建库
-create database if not exists api;
+create database if not exists my_api;
 
 -- 切换库
-use api;
+use my_api;
 -- 用户表
 create table if not exists user
 (
@@ -27,7 +27,7 @@ create table if not exists user
     ) comment 'User';
 
 -- 接口信息
-create table if not exists api.`interface_info`
+create table if not exists my_api.`interface_info`
 (
     `id` bigint not null auto_increment comment 'primary key' primary key,
     `name` varchar(256) not null comment 'name',
@@ -45,7 +45,7 @@ create table if not exists api.`interface_info`
     ) comment '接口信息';
 
 -- 用户调用接口关系表
-create table if not exists api.`user_interface_info`
+create table if not exists my_api.`user_interface_info`
 (
     `id` bigint not null auto_increment comment '主键' primary key,
     `userId` bigint not null comment 'userId id',
